@@ -4,6 +4,7 @@ import "firebase/auth";
 import firebaseConfig from "./firebase.config";
 import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -45,9 +46,15 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h1>This is Login</h1>
-            <button onClick={handleGoogleSignIn}>Google Sign in</button>
+        <div style={{ textAlign: "center" }}>
+            <h1>Login</h1>
+            <Button
+                onClick={handleGoogleSignIn}
+                variant="contained"
+                color="primary"
+            >
+                Google Sign in
+            </Button>
         </div>
     );
 };

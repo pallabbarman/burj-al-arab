@@ -14,13 +14,13 @@ const Bookings = () => {
         })
             .then((res) => res.json())
             .then((data) => setBookings(data));
-    }, []);
+    }, [loggedInUser.email]);
 
     return (
         <div>
             <h3>You have: {bookings.length} bookings</h3>
             {bookings.map((book) => (
-                <li>
+                <li key={book._id}>
                     {book.name} - From:{" "}
                     {new Date(book.checkIn).toDateString("dd/MM/yyyy")} - To:{" "}
                     {new Date(book.checkOut).toDateString("dd/MM/yyyy")}
